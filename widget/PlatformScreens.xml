@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+
+    <screen name="main">
+        <section>
+            <actions>
+                <set field="headerItem" value="main"/><!-- this highlights the selected menu-item with name "main" -->
+            </actions>
+            <widgets>
+                <decorator-screen name="PlatformCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                    		
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+    
+    <screen name="entityManagementScreen">
+        <section>
+            <actions>
+                <set field="headerItem" value="entityManagement"/><!-- this highlights the selected menu-item with name "main" -->
+                <set field="layoutSettings.javaScripts[]" value="/platform/js/easyui/jquery.easyui.min.js" global="true"/>
+                <set field="layoutSettings.javaScripts[]" value="/platform/js/jquery.xmlext.js" global="true"/>
+                <set field="layoutSettings.javaScripts[]" value="/platform/js/comm.js" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/platform/js/easyui/themes/icon.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/platform/css/comm.css" global="true"/>
+                <set field="layoutSettings.styleSheets[]" value="/platform/js/easyui/themes/bootstrap/easyui.css" global="true"/>
+            </actions>
+            <widgets>
+                <decorator-screen name="PlatformCommonDecorator" location="${parameters.mainDecoratorLocation}">
+                    <decorator-section name="body">
+                    	<platform-specific><html><html-template location="component://platform/webapp/platform/common/entityxml.ftl"/></html></platform-specific>	
+                    </decorator-section>
+                </decorator-screen>
+            </widgets>
+        </section>
+    </screen>
+
+</screens>
